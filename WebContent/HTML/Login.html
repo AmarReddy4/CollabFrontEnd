@@ -1,54 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+<script type="text/javascript" src="JS/Login.js"></script>
+<script type="text/javascript" src="JS/LoginService.js"></script>
 <script type="text/javascript" src="lib/angular.min.js"></script> 
  <script type="text/javascript" src="lib/angular-route.min.js"></script>
-<script type="text/javascript" src="js/registercntrl.js"></script>
-	<style>
-body{
-padding-top:100px;
-}
+ <script type="text/javascript" src="lib/angular-cookies.js"></script>
 
-</style>
 </head>
-<body  data-ng-app="regmyApp" >
+<body data-ng-app="loginApp">
+<div data-ng-controller="Logincontroller">
+{{islogged}}</div>
+ <div class="wrapper">
+    <form class="form-signin" action="" data-ng-submit="vm.login()">       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="username" placeholder="UserName" required="true" autofocus="" data-ng-model="vm.username"/>
+      <input type="password" class="form-control" name="password" placeholder="Password" required="true" data-ng-model="vm.password"/>      
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+    </form>
+  </div>
+
+</body>
+</html>
 
 
-<div class="container">
-    <div class="row">
-		<div class="col-md-4 col-md-offset-4">
-    		<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Please Login</h3>
-			 	</div>
-			  	<div class="panel-body">
-			    	<form role="form" data-ng-submit="submit()" action="" data-ng-controller="Logincontroller">
-                    <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="Username" data-ng-model="username" type="text">
-			    		    
-			    		</div>
-			    		
-			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Password" data-ng-model="password" type="password" value="">
-			    		</div>
-			    		
-			   			    	
-			    		    <button  type="submit" >LOGIN</button>
-			    		
-			    	</fieldset>
-			      	</form>
-			    </div>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/angular-cookies.js"></script>
+<script src="JS/Login.js"></script>
+<script src="JS/LoginService.js"></script>
+</head>
+<body data-ng-app="myApp">
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Please Login</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" data-ng-submit="submit()" action=""
+							data-ng-controller="LoginController">
+							<fieldset>
+								<div class="form-group">
+									<input class="form-control" placeholder="Username"
+										data-ng-model="username" type="text">
+
+								</div>
+
+								<div class="form-group">
+									<input class="form-control" placeholder="Password"
+										data-ng-model="password" type="password" value="">
+								</div>
+
+
+								<button type="submit">LOGIN</button>
+
+							</fieldset>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
- <!--  <h3>Login</h3>
+ -->
+	<!--  <h3>Login</h3>
   Form to get username & Password
    <form>
       <label>Username </label><input type="text" data-ng-model="username" /><br><br>
@@ -57,6 +92,6 @@ padding-top:100px;
   </form>
 
 Displaying the Array using ng-repeat
-  -->
+  
 </body>
-</html>
+</html>-->

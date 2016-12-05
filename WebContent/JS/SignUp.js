@@ -1,19 +1,6 @@
-/*
-var app = angular.module("myApp", []);
-
-app.controller('Registercontroller', function($scope) {
-   $scope.submit = function(){
-      $scope.username = " ";
-      $scope.password = " ";
-      $scope.Email = " ";
-      $scope.phone = " ";
-   }
-   
-});*/
-
 var app = angular.module('regmyApp',[]);
-app.controller('Registercontroller', [ '$scope', '$http', function($scope, $http) {
-	var BASE_URL = 'http://localhost:8082/CollabBack/';
+app.controller('SignUp', [ '$scope', '$http', function($scope, $http) {
+	var BASE_URL = 'http://localhost:8082/CollabBack';
 
 	console.log("registering");
 	$scope.submit = function() {
@@ -25,14 +12,13 @@ app.controller('Registercontroller', [ '$scope', '$http', function($scope, $http
 			
 			username : $scope.username,
 			password:$scope.password,
-			/*confirmpassword:$scope.confirmpassword,*/
 			mail: $scope.mail,
 			mobile:$scope.mobile,
 			address:$scope.address,
 			gender:$scope.gender,
 			dob:$scope.dob,
-	
 			
+	
 		}
 		$http({
 			method : 'POST',
@@ -46,8 +32,7 @@ app.controller('Registercontroller', [ '$scope', '$http', function($scope, $http
 			$scope.mobile='';
 			$scope.address='';
 			$scope.gender='';
-			
-			
+			$scope.dob='';		
 		
 		}).error(function(data,status,headers,config){
 			alert("SUCCESS");

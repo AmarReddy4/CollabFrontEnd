@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Sign Up</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<script type="text/javascript" src="lib/angular.min.js"></script> 
- <script type="text/javascript" src="lib/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-route.min.js"></script>
 <script src="JS/SignUp.js"></script>
-<!-- <script src="JS/Home.js"></script> -->
-	<style>
 
-</style>
 </head>
-<body  data-ng-app="regmyApp" >
+<body data-ng-app="regmyApp">
 
-<div class="container">
+	<!-- <div class="container">
     <div class="row">
 		<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
-			  	<div class="panel-heading">
+			  	<div class="panel-heading">-
 			    	<h3 class="panel-title">Please sign up</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form role="form" data-ng-submit="submit()" action="" data-ng-controller="Registercontroller">
+			    	<form role="form" data-ng-submit="submit()" action="" data-ng-controller="SignUp">
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="Username" data-ng-model="username" type="text">
@@ -40,10 +39,13 @@
 			    		    <input class="form-control" placeholder="Email" data-ng-model="mail" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    		    <input class="form-control" placeholder="DOB" data-ng-model="dob" type="date">
+			    		    <input class="form-control" placeholder="DOB" data-ng-model="dob" type="text">
 			    		</div>
 			    		<div class="form-group">
 			    		    <input class="form-control" placeholder="phone" data-ng-model="mobile" type="text">
+			    		</div>
+			    		<div class="form-group">
+			    		    <input class="form-control" placeholder="role" data-ng-model="role" type="text">
 			    		</div>
 			   			<div class="form-group">
 			    		    <input class="form-control" placeholder="Gender" data-ng-model="gender" type="text">
@@ -58,17 +60,52 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
- <!--  <h3>Login</h3>
-  Form to get username & Password
-   <form>
-      <label>Username </label><input type="text" data-ng-model="username" /><br><br>
-      <label>Password </label><input type="password" data-ng-model="password"><br>
-      <button  type="submit" data-ng-click="submit()">login</button>
-  </form>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Please sign up</h3>
+					</div>
+					<form role="form" data-ng-submit="submit()" action=""
+						data-ng-controller="SignUp">
+						<div class="form-group">
+							<input type="text" placeholder="Username"
+								data-ng-model="username"> <br>
+						</div>
+						<div class="form-group">
+							<input type="email" placeholder="E-mail" data-ng-model="mail">
+							<br>
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="Password"
+								data-ng-model="password">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="Mobile" data-ng-model="mobile">
+						</div>
+						<div class="form-group">
+							<input type="date" data-ng-model="dob">
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="Role" data-ng-model="role">
+						</div>
+						<div class="form-group">
+							<textarea draggable="false" rows="13" placeholder="Address"
+								data-ng-model="address"></textarea>
+						</div>
+						<div class="form-group">
+							Gender<input type="radio" data-ng-model="gender" value="male">Male
+							<input type="radio" data-ng-model="gender" value="female">Female
+						</div>
+						<button type="submit">Register</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-Displaying the Array using ng-repeat
-  -->
 </body>
 </html>

@@ -3,43 +3,56 @@
 <!-- define angular app -->
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="lib/angular.min.js"></script> 
- <script type="text/javascript" src="lib/angular-route.min.js"></script>
-
- <script src="JS/SignUp.js"></script>
- <script src="JS/Home.js"></script>
- 
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/angular-cookies.js"></script>
 </head>
+<!-- <style>
+
+.navbar-brand1
+{
+    width: 50%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+</style> -->
 
 <!-- define angular controller -->
-<body ng-app="myApp">
+<body data-ng-app="myApp">
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">COLLAB</a>
-      </div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#/">COLLAB</a>
+			</div>
 
-      <ul>
-      <li><a href="#/">Home</a></li>
-      <li><a href="#/Login">Login</a></li>
-      <li><a href="#/register">SignUp</a></li>
-        <!-- <li><a href="#/Home"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#login"><i class="fa fa-shield"></i> Login</a></li>
-        <li><a href="#/register"><i class="fa fa-comment"></i> Sign Up</a></li>
-        <li><a href="#blog"><i class="fa fa-shield"></i> Blog</a></li>
-        <li><a href="#forum"><i class="fa fa-comment"></i> Forum</a></li> -->
-</ul>
-    </div>
-  </nav>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#/Home">Home</a></li>
+				<li><a href="#/login">Login</a></li>
+				<li><a href="#/register">SignUp</a></li>
+				<li><a href="#/forum">Forum</a>
+				<li><a href="#/blog">Blog</a>
+				<li><a href="#/friend">Friends</a>
+			</ul>
+		</div>
+	</nav>
 
-  	
-    <!-- angular templating -->
-		<!-- this is where content will be injected -->
-    <div data-ng-view></div>
-   
+	<div data-ng-view></div>
+	
+	<script src="JS/SignUp.js"></script>
+	<script src="Home.js"></script>
+	<script src="JS/Blog.js"></script>
+	<script src="JS/Forum.js"></script>
+	<script src="JS/Friend.js"></script>
+	<script src="JS/Login.js"></script>
+	<script src="JS/LoginService.js"></script>
+
+
 </body>
 </html>
