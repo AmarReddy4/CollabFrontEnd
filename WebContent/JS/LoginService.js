@@ -30,7 +30,7 @@ app.factory('AuthenticationService', AuthenticationService);
         function Logout(callback){
         	$http({
         		method:'POST',
-        		url:BASE_URL+'/logout'
+        		url:BASE_URL+'/'
         	}).success(function(response){
         		response = {success:true};
         		callback(response);
