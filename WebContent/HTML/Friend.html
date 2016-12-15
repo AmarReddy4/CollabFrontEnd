@@ -6,8 +6,12 @@
 <script type="text/javascript" src="JS/Friend.js"></script>
 <script type="text/javascript" src="lib/angular.min.js"></script>
 <script type="text/javascript" src="lib/angular-route.min.js"></script>
+
 </head>
-<body data-ng-app="allusers">
+<body data-ng-app="allusers">		
+		<p><a href="#allfriends">My Friends</a>|
+		<a href="#newrequests">My Requests</a></p>
+
 	<div data-ng-controller="alluserctrl">
 		<div class="container" style="padding-top: 10px">
 			<div class="row">
@@ -22,6 +26,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div data-ng-init="getAllUsers()">
 			<div data-ng-repeat="user in users | filter:search">
 				<hr>
@@ -52,7 +57,7 @@
 														class="label label-default">pending</span></td>
 													<td><a href="#">{{user.mail}}</a></td>
 													<td style="width: 20%;">
-														<button data-ng-click="sendrequest(user.id)"
+														<button data-ng-click="sendrequest(user.username)"
 															class="btn btn-success">Send Request</button>
 													</td>
 												</tr>

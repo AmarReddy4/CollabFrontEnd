@@ -1,5 +1,5 @@
 var app = angular.module('forumApp',[]);
-app.controller('Forumcontroller', [ '$scope', '$http', function($scope, $http) {
+app.controller('Forumcontroller', [ '$scope', '$http','$location', '$rootScope', function($scope,$http, $location, $rootScope) {
  var BASE_URL = 'http://localhost:8082/CollabBack';
  $scope.getAllForum= function() {
   console.log("get all forum")
@@ -55,4 +55,19 @@ app.controller('Forumcontroller', [ '$scope', '$http', function($scope, $http) {
 	  $scope.description=description;
 	  $scope.topic=topic;
   }
+  
+  $scope.getforum=function(id){
+		
+		console.log("iforum")
+		$http({
+			method: "GET",
+			url:BASE_URL+'/individualforum/'+id,
+		}).success(function(data,status,headers,config){
+			$location.path('/individualforum');
+			$rootScope.individualforums=data;
+			console.log(data)
+		}).error(function(data, status, headers, config) {
+			alert("Error");
+		});
+	}
 }]);

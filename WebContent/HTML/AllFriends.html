@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Friends</title>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-route.min.js"></script>
+<script type="text/javascript" src="JS/Friend.js"></script>
+<script type="text/javascript" src="JS/AllFriend.js"></script>
+
+</head>
+<body data-ng-app="allusers">
+<div data-ng-controller="allfriendsctrl">
+<div data-ng-init="getmyfriends()">
+<div data-ng-repeat="myfriend in myfriends">
+{{myfriend.friendid}}
+</div>
+</div>
+</div>
+</body>
+</html>

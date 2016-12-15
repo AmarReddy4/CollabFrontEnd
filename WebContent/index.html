@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 
-<!-- define angular app -->
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
 
 <script type="text/javascript" src="lib/angular.min.js"></script>
 <script type="text/javascript" src="lib/angular-route.min.js"></script>
 <script type="text/javascript" src="lib/angular-cookies.js"></script>
+
 </head>
-<!-- <style>
-
-.navbar-brand1
-{
-    width: 50%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
+<style>
+  .navbar {
+      margin-bottom: 0;
+      background-color: black ;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: black !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  .glyphicon.glyphicon-log-in {
+    font-size: 20px;
 }
-</style> -->
-
+.glyphicon.glyphicon-user {
+    font-size: 20px;
+}
+.glyphicon.glyphicon-home {
+    font-size: 20px;
+}
+/* .slideanim {visibility:hidden;} */
+  .slideanim {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  
+</style>
 <!-- define angular controller -->
 <body data-ng-app="myApp">
 
@@ -31,17 +64,79 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#/">COLLAB</a>
 			</div>
-
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#/Home">Home</a></li>
-				<li><a href="#/login">Login</a></li>
-				<li><a href="#/register">SignUp</a></li>
+	<!-- 			<li><a href="#/login">Login</a></li>
+				<li><a href="#/register">SignUp</a></li> -->
 				<li><a href="#/forum">Forum</a>
 				<li><a href="#/blog">Blog</a>
 				<li><a href="#/friend">Friends</a>
+				<li><a href="#/chat">Chat</a>
 			</ul>
+			
+	 <ul class="nav navbar-nav navbar-right">
+     <li><a href="#login" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
+     <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
+     <li style="padding-top:15px;" data-ng-show="globals.currentUser.islogged">Welcome:{{globals.currentUser.username}}</li>
+     <li data-ng-show="globals.currentUser.islogged"><a href="#myprofile">My Profile</a></li>
+     <li data-ng-show="globals.currentUser.islogged">
+     <a href="" data-ng-click="vm.logout()">logout</a></li>
+    </ul>{{currentuser.id}}
 		</div>
 	</nav>
+	<!-- <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/Home">CHATS<i class="glyphicon glyphicon-home"></i></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+     <li><a href="#login" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
+     <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
+     <li style="padding-top:15px;" data-ng-show="globals.currentUser.islogged">Welcome:{{globals.currentUser.username}}</li>
+     <li data-ng-show="globals.currentUser.islogged"><a href="#myprofile">My Profile</a></li> 
+     <li data-ng-show="globals.currentUser.islogged">
+     <a href="" data-ng-click="vm.logout()">logout</a></li>
+    </ul>{{currentuser.id}}<ul class="nav navbar-nav navbar-right">        
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<div class="container-fluid text-center">
+<h2>ACHIEVEMENTS</h2>
+<br>
+<div class="row slideanim">
+	<div class="col-sm-6">
+		<img src="http://freevector.co/wp-content/uploads/2010/07/1663-edit-user-profile1.png" height="200px" width="250px">
+		<h3>Blog</h3>
+		
+	</div>
+	<div class="col-sm-6">
+		<img src="http://freevector.co/wp-content/uploads/2010/07/1663-edit-user-profile1.png" height="200px" width="250px">
+		<h3>Forum</h3>
+		
+	</div>
+	</div>
+	
+	<br>
+	<br>
+	<div class="row slideanim">
+	<div class="col-sm-6">
+		<img src="http://www.mrcpchrevision.co.uk/wp-content/uploads/2014/02/Filos_segundo_logo_flipped.jpg" height="200px" width="250px">
+		<h3>Friends</h3>
+		
+	</div>
+	<div class="col-sm-6">
+		<img src="https://lh6.ggpht.com/cjDmpCn7FfPVKwLi6cJJzvaARalUZBBfpqFiEjxnLPvud8vPPmXyM8Ph8GF6CA6yMA4=w300" height="200px" width="250px">
+		<h3>Chat</h3>
+		
+	</div>
+	</div>
+</div> -->
 
 	<div data-ng-view></div>
 	
@@ -52,7 +147,9 @@
 	<script src="JS/Friend.js"></script>
 	<script src="JS/Login.js"></script>
 	<script src="JS/LoginService.js"></script>
-
-
+	<script src="JS/AllFriends.js"></script>
+	<script src="JS/Chat.js"></script>
+	<script src="JS/ChatService.js"></script>
+	<script src="JS/Comment.js"></script>
+	
 </body>
-</html>

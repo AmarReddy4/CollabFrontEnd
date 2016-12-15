@@ -1,6 +1,6 @@
 var blogapp = angular.module('blogApp',[]);
 blogapp.controller('Blog', [ '$scope', '$http', function($scope, $http) {
-var BASE_URL = 'http://localhost:8082/CollabBack/';
+var BASE_URL = 'http://localhost:8082/CollabBack';
 
 $scope.getAllBlogs= function() {
 console.log("get all blogs")
