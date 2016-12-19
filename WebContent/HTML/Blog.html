@@ -12,7 +12,6 @@
 <script type="text/javascript" src="lib/angular-route.min.js"></script>
 <script src="Blog.js"></script>
 
-
 <style type="text/css">
 .btn1 {
 	height: 30px;
@@ -34,6 +33,7 @@
 				<div class="form-group">
 					<label for="title" class="col-sm-3 control-label">Title</label>
 					<div class="col-sm-9">
+				
 						<input type="text" name="title" data-ng-model="title"
 							class="form-control" autofocus> <br>
 					</div>
@@ -78,13 +78,20 @@
 								<p>{{blog.content}}</p>
 								<hr>
 								<p>
+								
 									<button
-										data-ng-click="editblog(blog.id,blog.title,blog.content)" 
+										data-ng-click="editblog(blog.id,blog.title,blog.content)"
 										class="btn btn-primary btn-success">edit</button>
-										
+
 									<button data-ng-click="deleteblog(blog.id)"
 										class="btn btn-primary btn-danger">delete</button>
-								</p>
+										
+									<button class="btn btn-primary btn-info"
+										data-ng-click="like(blog.id)">Like</button>
+										
+									<i class="fa fa-thumbs-up"></i>{{blog.bloglike}}
+								
+
 							</div>
 						</div>
 					</div>
